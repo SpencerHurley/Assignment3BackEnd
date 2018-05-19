@@ -33,6 +33,8 @@ public class UserService {
 	public User register(@RequestBody User user, HttpSession session) { 
 		if (userRepository.findUserByUsername(user.getUsername()) == null) {
 			return this.createUser(user);
+		} else {
+			return userRepository.findUserByUsername(user.getUsername());
 		}
 	}
 
