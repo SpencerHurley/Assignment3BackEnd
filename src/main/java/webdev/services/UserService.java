@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
+import javax.servlet.http.HttpSession;
+
 import webdev.models.User;
 import webdev.repositories.UserRepository;
 
@@ -26,6 +28,14 @@ public class UserService {
 	public Optional<User> getUserById(@PathVariable("userId") int id) {
 		return userRepository.findById(id);
 	}
+	
+	@PostMapping("/api/register")
+	public User register(@RequestBody User user, HttpSession session) { 
+		if (userRepository.findUserByUsername(user.getUsername()) == null) {
+			return this.createUser(user);
+		}
+	}
+
 	
 	@PutMapping("/api/user/{userId}")
 	public User updateUser(@PathVariable("userId") int id, @RequestBody User user) {
