@@ -41,8 +41,13 @@ public class UserService {
 	
 	@PutMapping("/api/user/{userId}")
 	public User updateUser(@PathVariable("userId") int id, @RequestBody User user) {
-		userRepository.deleteById(id);
-		return userRepository.save(user);
+		Optional<User> maybeUser = userRepository.findById(id);
+		if (maybeUser.isPresent()) {
+			User u = maybeUser.get();
+			u.set(user);
+			userRepository.save(u);
+		}
+		return null;
 	}
 	
 	@DeleteMapping("/api/user/{userId}")

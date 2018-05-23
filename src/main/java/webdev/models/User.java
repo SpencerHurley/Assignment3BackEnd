@@ -32,9 +32,6 @@ public class User {
   public int getId() {
     return id;
   }
-  public void setId(int id) {
-    this.id = id;
-  }
   public String getUsername() {
     return username;
   }
@@ -84,5 +81,14 @@ public class User {
 	  this.dateOfBirth = date;
   }
   
-  // ... same for rest of the properties
+  public void set(User user) {
+	  this.setDate(user.getDate());
+	  this.setEmail(user.getEmail());
+	  this.setFirstName(user.getFirstName());
+	  this.setLastName(user.getLastName());
+	  this.setPassword(user.getPassword());
+	  this.setPhone(user.getPhone());
+	  this.setRole(user.getRole());
+	  this.setUsername(user.getUsername());
+  }
 }
