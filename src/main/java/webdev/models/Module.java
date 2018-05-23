@@ -17,4 +17,18 @@ public class Module {
   @ManyToOne
   @JsonIgnore
   private Course course;
+  
+  public String getTitle() {
+	  return this.title;
+  }
+  public void setTitle(String title) {
+	  this.title = title;
+  }
+  
+  public Course getCourse() {
+	  return this.course;
+  }
+  public void setCourse(Course course) {
+	  this.course = course;
+  }
 }

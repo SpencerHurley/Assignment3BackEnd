@@ -23,4 +23,9 @@ public class Course {
   private Date modified;
   @OneToMany(mappedBy="course")
   private List<Module> modules;
+  
+  public List<Module> getModules() {
+	  return this.modules;
+  }
+  
 }
