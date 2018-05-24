@@ -11,6 +11,7 @@ import webdev.repositories.ModuleRepository;
 import java.util.*;
 import javax.servlet.http.HttpSession;
 
+@RestController
 public class ModuleService {
 	@Autowired
 	ModuleRepository moduleRepository;
