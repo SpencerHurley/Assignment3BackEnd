@@ -16,7 +16,7 @@ public class CourseService {
 	@Autowired
 	CourseRepository courseRepository;
 	
-	@PostMapping("/api/course/")
+	@PostMapping("/api/course")
 	public Course createCourse(
 			@RequestBody Course newCourse) {
 		return courseRepository.save(newCourse);
@@ -27,7 +27,7 @@ public class CourseService {
 		courseRepository.deleteById(id);
 	}
 	
-	@GetMapping("/api/course/")
+	@GetMapping("/api/course")
 	public List<Course> findAllCourses() {
 		return (List<Course>) courseRepository.findAll();
 	}

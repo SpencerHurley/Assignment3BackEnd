@@ -19,7 +19,7 @@ public class ModuleService {
 	@Autowired
 	CourseRepository courseRepository;
 	
-	@GetMapping("/api/course/{cid}/module")
+	@PostMapping("/api/course/{cid}/module")
 	public Module createModule(
 			@PathVariable("cid") int cid,
 			@RequestBody Module newModule) {
