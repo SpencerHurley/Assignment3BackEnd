@@ -24,7 +24,7 @@ public class LessonService {
 	@Autowired
 	CourseRepository courseRepository;
 	
-	@GetMapping("api/course/{cid}/module/{mid}/lesson")
+	@PostMapping("api/course/{cid}/module/{mid}/lesson")
 	public Lesson createLesson(@PathVariable("cid") int cid,
 			@PathVariable("mid") int mid, 
 			@RequestBody Lesson lesson) {

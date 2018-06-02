@@ -12,6 +12,7 @@ import java.util.*;
 import javax.servlet.http.HttpSession;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class CourseService {
 	@Autowired
 	CourseRepository courseRepository;

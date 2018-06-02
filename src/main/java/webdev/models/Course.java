@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Course {
   @Id
@@ -21,6 +23,7 @@ public class Course {
   private Date created;
   @Temporal(TemporalType.TIMESTAMP)
   private Date modified;
+  @JsonIgnore
   @OneToMany(mappedBy="course")
   private List<Module> modules;
   
