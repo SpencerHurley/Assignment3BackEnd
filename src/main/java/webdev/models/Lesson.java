@@ -24,6 +24,9 @@ public class Lesson {
   @OneToMany(mappedBy="lesson")
   private List<Assignment> assignments;
   
+  @OneToMany(mappedBy="lesson")
+  private List<Exam> exams;
+  
 	public String getTitle() {
 		return title;
 	}
@@ -49,4 +52,18 @@ public class Lesson {
 	public void addAssignment(Assignment a) {
 		this.assignments.add(a);
 	}
+	
+	public List<Exam> getExams() {
+		return this.exams;
+	}
+	
+	public void addExam(Exam e) {
+		this.exams.add(e);
+	}
+	
+	public void setExams(List<Exam> list) {
+		this.exams = list;
+	}
+	
+	
 }
