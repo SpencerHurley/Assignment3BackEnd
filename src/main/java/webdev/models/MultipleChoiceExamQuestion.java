@@ -2,9 +2,15 @@ package webdev.models;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "SINGLE_MULTIPLE_CHOICE_QUESTION")
 public class MultipleChoiceExamQuestion extends BaseExamQuestion {
+	@Column(name="CHOICES")
 	private ArrayList<String> choices;
-	private int selectedChoice;
 	
 	public ArrayList<String> getChoices() {
 		return choices;
@@ -12,11 +18,5 @@ public class MultipleChoiceExamQuestion extends BaseExamQuestion {
 	
 	public void setChoices(ArrayList<String> choices) {
 		this.choices = choices;
-	}
-	public int getSelectedChoice() {
-		return selectedChoice;
-	}
-	public void setSelectedChoice(int selectedChoice) {
-		this.selectedChoice = selectedChoice;
 	}
 }
