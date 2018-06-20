@@ -12,6 +12,7 @@ import java.util.*;
 import javax.servlet.http.HttpSession;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class ModuleService {
 	@Autowired
 	ModuleRepository moduleRepository;

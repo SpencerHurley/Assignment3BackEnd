@@ -22,11 +22,11 @@ public class Lesson {
   private Module module;
   
   @OneToMany(mappedBy="lesson")
-  private List<Assignment> assignments;
-  
-  @OneToMany(mappedBy="lesson")
-  private List<Exam> exams;
-  
+  private List<Widget> widgets;
+  	
+  public int getId() {
+	  return this.id;
+  }
 	public String getTitle() {
 		return title;
 	}
@@ -45,25 +45,12 @@ public class Lesson {
 		this.setModule(l.getModule());
 	}
 	
-	public List<Assignment> getAssignments() {
-		return this.assignments;
+	public List<Widget> getWidgets() {
+		return this.widgets;
 	}
 	
-	public void addAssignment(Assignment a) {
-		this.assignments.add(a);
+	public void addWidget(Widget w) {
+		this.widgets.add(w);
 	}
-	
-	public List<Exam> getExams() {
-		return this.exams;
-	}
-	
-	public void addExam(Exam e) {
-		this.exams.add(e);
-	}
-	
-	public void setExams(List<Exam> list) {
-		this.exams = list;
-	}
-	
 	
 }

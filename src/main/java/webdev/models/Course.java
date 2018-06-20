@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Course {
   @Id
-  @GeneratedValue(strategy=GenerationType.IDENTITY)
   private int id;
   private String title;
   @Temporal(TemporalType.TIMESTAMP)
@@ -26,6 +25,10 @@ public class Course {
   @JsonIgnore
   @OneToMany(mappedBy="course")
   private List<Module> modules;
+  
+  public int getId() {
+	  return this.id;
+  }
   
   public String getTitle() {
 	return title;

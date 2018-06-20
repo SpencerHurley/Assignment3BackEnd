@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import webdev.models.Course;
 import webdev.models.Lesson;
+import webdev.models.Module;
 import webdev.repositories.CourseRepository;
 import webdev.repositories.LessonRepository;
 import webdev.repositories.ModuleRepository;
@@ -13,6 +14,7 @@ import java.util.*;
 import javax.servlet.http.HttpSession;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class LessonService {
 	
 	@Autowired
@@ -54,6 +56,16 @@ public class LessonService {
 			lesson.set(newLesson);
 			lessonRepository.save(lesson);
 		}
+	}
+	
+	@GetMapping("/api/module/{mid}/lesson")
+	public List<Lesson> findAllLessonsForModule(@PathVariable("mid") int mid) {
+		Optional<Module> data = moduleRepository.findById(mid);
+			if(data.isPresent()) {
+				Module module = data.get();
+				return module.getLessons();
+			}
+			return null;
 	}
 
 }

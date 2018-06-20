@@ -10,6 +10,7 @@ import webdev.models.User;
 import webdev.repositories.UserRepository;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UserService {
 	@Autowired
 	UserRepository userRepository;
