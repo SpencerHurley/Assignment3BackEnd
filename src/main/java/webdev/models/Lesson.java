@@ -18,10 +18,20 @@ public class Lesson {
   private int id;
   private String title;
   @ManyToOne
-  @JsonIgnore
   private Module module;
   
   @OneToMany(mappedBy="lesson")
+  @JsonIgnore
+  private List<Exam> exams;
+  
+  public List<Exam> getExams() {
+	return exams;
+  }
+	public void setExams(List<Exam> exams) {
+		this.exams = exams;
+	}
+
+@OneToMany(mappedBy="lesson")
   private List<Widget> widgets;
   	
   public int getId() {
@@ -53,4 +63,7 @@ public class Lesson {
 		this.widgets.add(w);
 	}
 	
+	public void addExam(Exam e) {
+		this.exams.add(e);
+	}
 }
